@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listando Paciente</h1>
+
+<% if @patients.any? %>
+
+<%= link_to 'New Patient', new_patient_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Birth day</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= l patient.birth_day %></td>
+        <td><%= patient.description %></td>
+        <td><%= link_to 'Mostrar', patient %></td>
+        <td><%= link_to 'Editar', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Deletar', patient, method: :delete, data: { confirm: 'Você tem certeza disso?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% else %>
+  <h3>Não há pacientes, <%= link_to 'Clique aqui', new_patient_path %> para criar o primeiro. </h3>
+<% end %>
+

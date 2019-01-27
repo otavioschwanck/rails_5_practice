@@ -1,0 +1,22 @@
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class = "row">
+      <div class = "small-6 column">
+        <%= f.input :name %>
+      </div>
+      <div class = "small-6 column">
+        <%= f.input :birth_day, as: :date, start_year: Date.today.year - 90,
+          end_year: Date.today.year - 12,
+          order: [:month, :year], html5: true %>
+      </div>
+    </div>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
