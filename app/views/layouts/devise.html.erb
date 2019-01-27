@@ -16,19 +16,14 @@
       <div class="top-bar-left">
         <ul class="menu">
           <li class="menu-text">Psicocare</li>
-          <li><%= link_to t('.pacientes'), '#' %></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
-          <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
     </div>
 
-    <%= yield %>
-
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= yield %>
+      </div>
+    </div>    
   </body>
 </html>

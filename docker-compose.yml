@@ -10,6 +10,7 @@ services:
       - 5432
   app:
     build: .
+    stdin_open: true
     volumes:
       - .:/app
     ports:
