@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# About
+This is a quickly project that the only purpose is to train my project setup skills and capybara test. I did not cling to details like i18n, design and utility.
 
-Things you may want to cover:
+Time spend on this project: 5h. (Docker setup, project setup, learn capybara tests, capybara setup with selenium docker container)
+
+# Highlights:
+- Docker configuration to easy setup the project.
+- Scripts to help to use commands inside docker container
+- Capybara installed with selenium as a container to run test easily without download the webdriver
+- Rubocop and reek to make code more clean
+- CRUD capybara test
+- RSpec <3
+
+## Project details and setup:
 
 * Ruby version
+  - 2.6
 
 * System dependencies
+  - Docker 18.09
+  - Docker Compose 1.23
 
 * Configuration
+  - docker-compose up -d
 
 * Database creation
-
-* Database initialization
-
+  - ./drails.sh db:create db:migrate
+  
 * How to run the test suite
+  - ./dbundle.sh exec rspec
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Running the application
+  1 - ./server.sh
+  2 - Open your browser and go to: localhost:3000
