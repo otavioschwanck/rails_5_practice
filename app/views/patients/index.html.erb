@@ -20,7 +20,7 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><%= patient.name %></td>
-        <td><%= l patient.birth_day %></td>
+        <td><%= l patient.birth_day if patient.birth_day %></td>
         <td><%= patient.description %></td>
         <td><%= link_to 'Mostrar', patient %></td>
         <td><%= link_to 'Editar', edit_patient_path(patient) %></td>
