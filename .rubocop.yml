@@ -1,0 +1,44 @@
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Layout/IndentArray:
+  Enabled: false
+
+Layout/IndentHash:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.5
+  DisplayCopNames: true
+  Exclude:
+    - 'spec/support/factories/*.rb'
+    - 'vendor/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'src/*/api/documentation/**/*.rb'
+
+# TODO: Check when this bug is solved: https://github.com/bbatsov/rubocop/issues/5223
+Style/FormatStringToken:
+  Enabled: false

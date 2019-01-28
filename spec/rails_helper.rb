@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -63,15 +65,15 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before(:each) do
-    if /selenium_remote/.match Capybara.current_driver.to_s
+    if /selenium_remote/.match? Capybara.current_driver.to_s
       ip = `/sbin/ip route|awk '/scope/ { print $9 }'`
-      ip = ip.gsub "\n", ""
-      Capybara.server_port = "3000"
+      ip = ip.delete "\n"
+      Capybara.server_port = '3000'
       Capybara.server_host = ip
       Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"
     end
   end
- 
+
   config.after(:each) do
     Capybara.reset_sessions!
     Capybara.use_default_driver
@@ -88,11 +90,12 @@ end
 
 if ENV['SELENIUM_REMOTE_HOST']
   Capybara.javascript_driver = :selenium_remote_firefox
-  Capybara.register_driver "selenium_remote_firefox".to_sym do |app|
+  Capybara.register_driver 'selenium_remote_firefox'.to_sym do |app|
     Capybara::Selenium::Driver.new(
       app,
       browser: :remote,
       url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :firefox)
+      desired_capabilities: :firefox
+    )
   end
 end

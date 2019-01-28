@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe Patient, :type => :model do
+RSpec.describe Patient, type: :model do
   context 'validations' do
     it { is_expected.to validate_presence_of(:name) }
   end
@@ -11,7 +13,7 @@ RSpec.describe Patient, :type => :model do
 
       it { expect(build(:patient, **attributes).valid?).to be_truthy }
     end
-    
+
     context 'invalid attributes' do
       let(:attributes) { { name: nil } }
 

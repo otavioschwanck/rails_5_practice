@@ -29,15 +29,17 @@ change	db/migrate/20190127014225_create_patients.rb	/^  def change$/;"	f	class:C
 change	db/migrate/20190127220113_add_user_id_to_patient.rb	/^  def change$/;"	f	class:AddUserIdToPatient
 create	app/controllers/patients_controller.rb	/^  def create$/;"	f	class:PatientsController
 destroy	app/controllers/patients_controller.rb	/^  def destroy$/;"	f	class:PatientsController
-edit	app/controllers/patients_controller.rb	/^  def edit$/;"	f	class:PatientsController
+edit	app/controllers/patients_controller.rb	/^  def edit; end$/;"	f	class:PatientsController
+failure_response	app/controllers/patients_controller.rb	/^  def failure_response(format, action, patient)$/;"	f	class:PatientsController
 index	app/controllers/home_controller.rb	/^  def index; end$/;"	f	class:HomeController
 index	app/controllers/patients_controller.rb	/^  def index$/;"	f	class:PatientsController
 layout_by_resource	app/controllers/application_controller.rb	/^  def layout_by_resource$/;"	f	class:ApplicationController
 new	app/controllers/patients_controller.rb	/^  def new$/;"	f	class:PatientsController
-patient_params	app/controllers/patients_controller.rb	/^    def patient_params$/;"	f	class:PatientsController
-set_patient	app/controllers/patients_controller.rb	/^    def set_patient$/;"	f	class:PatientsController
-show	app/controllers/patients_controller.rb	/^  def show$/;"	f	class:PatientsController
+patient_params	app/controllers/patients_controller.rb	/^  def patient_params$/;"	f	class:PatientsController
+set_patient	app/controllers/patients_controller.rb	/^  def set_patient$/;"	f	class:PatientsController
+show	app/controllers/patients_controller.rb	/^  def show; end$/;"	f	class:PatientsController
 sign_up_with	spec/features/visitors_sing_up_spec.rb	/^    def sign_up_with(email, password)$/;"	f
+successful_response	app/controllers/patients_controller.rb	/^  def successful_response(message, status)$/;"	f	class:PatientsController
 system!	bin/setup	/^def system!(*args)$/;"	f
 system!	bin/update	/^def system!(*args)$/;"	f
 update	app/controllers/patients_controller.rb	/^  def update$/;"	f	class:PatientsController

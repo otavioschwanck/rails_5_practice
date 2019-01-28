@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/features/visitor_signs_up_spec.rb
 require 'spec_helper'
 
@@ -22,7 +24,7 @@ describe 'the signup process', type: :feature do
     end
 
     def sign_up_with(email, password)
-      visit ('/users/sign_up')
+      visit '/users/sign_up'
       fill_in 'Email', with: email
       fill_in 'Password', with: password
       fill_in 'Password Confirmation', with: password

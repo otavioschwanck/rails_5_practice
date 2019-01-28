@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: %i[show edit update destroy]
 
   # GET /patients
   # GET /patients.json
@@ -9,8 +11,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/1
   # GET /patients/1.json
-  def show
-  end
+  def show; end
 
   # GET /patients/new
   def new
@@ -18,8 +19,7 @@ class PatientsController < ApplicationController
   end
 
   # GET /patients/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /patients
   # POST /patients.json
@@ -28,11 +28,9 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to patients_url }
-        format.json { render :show, status: :created, location: @patient }
+        successful_response('Patient successfuly created', :created)
       else
-        format.html { render :new }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
+        failure_response(format, :new, @patient)
       end
     end
   end
@@ -42,17 +40,16 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to patients_url, notice: 'Patient was successfully updated.' }
-        format.json { render :show, status: :ok, location: @patient }
+        successful_response('Patient was successfuly updated.', :ok)
       else
-        format.html { render :edit }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
+        failure_response(format, :new, @patient)
       end
     end
   end
 
   # DELETE /patients/1
   # DELETE /patients/1.json
+  # reek:disable TooManyStatements
   def destroy
     @patient.destroy
     respond_to do |format|
@@ -62,13 +59,24 @@ class PatientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_patient
-      @patient = Patient.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def patient_params
-      params.require(:patient).permit(:name, :birth_day, :description).merge(user_id: current_user.id)
-    end
+  def failure_response(format, action, patient)
+    format.html { render action }
+    format.json { render json: patient.errors, status: :unprocessable_entity }
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
+
+  def successful_response(message, status)
+    format.html { redirect_to patients_url, notice: message }
+    format.json { render :show, status: status, location: @patient }
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def patient_params
+    params.require(:patient).permit(:name, :birth_day, :description).merge(user_id: current_user.id)
+  end
 end

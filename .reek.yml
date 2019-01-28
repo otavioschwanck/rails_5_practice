@@ -1,0 +1,46 @@
+detectors:
+  TooManyStatements:
+    max_statements: 6
+
+  IrresponsibleModule:
+    enabled: false
+
+  UtilityFunction:
+    enabled: false
+    public_methods_only: true
+    exclude:
+      - "#authorize"
+
+  FeatureEnvy:
+    enabled: false
+
+  ControlParameter:
+    enabled: false
+
+exclude_paths:
+  - vendor/bundle
+  - db/migrate/
+  - config/
+  - bin/
+
+directories:
+  "app/controllers":
+    IrresponsibleModule:
+      enabled: false
+    NestedIterators:
+      max_allowed_nesting: 2
+    UnusedPrivateMethod:
+      enabled: false
+    InstanceVariableAssumption:
+      enabled: false
+  "app/helpers":
+    IrresponsibleModule:
+      enabled: false
+    UtilityFunction:
+      enabled: false
+  "app/mailers":
+    InstanceVariableAssumption:
+      enabled: false
+  "app/models":
+    InstanceVariableAssumption:
+      enabled: false
