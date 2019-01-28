@@ -7,7 +7,7 @@ Time spend on this project: 5h. (Docker setup, project setup, learn capybara tes
 
 # Highlights:
 - Docker configuration to easy setup the project.
-- Scripts to help to use commands inside docker container
+- Scripts to help the use of commands inside docker container
 - Capybara installed with selenium as a container to run test easily without download the webdriver
 - Rubocop and reek to make code more clean
 - CRUD capybara test
