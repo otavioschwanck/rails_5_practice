@@ -32,5 +32,5 @@ Time spend on this project: 5h. (Docker setup, project setup, learn capybara tes
   - ./dbundle.sh exec rspec
 
 * Running the application
-  1 - ./server.sh
-  2 - Open your browser and go to: localhost:3000
+  - ./server.sh
+  - Open your browser and go to: localhost:3000
