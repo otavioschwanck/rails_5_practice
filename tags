@@ -34,6 +34,7 @@ failure_response	app/controllers/patients_controller.rb	/^  def failure_response
 index	app/controllers/home_controller.rb	/^  def index; end$/;"	f	class:HomeController
 index	app/controllers/patients_controller.rb	/^  def index$/;"	f	class:PatientsController
 layout_by_resource	app/controllers/application_controller.rb	/^  def layout_by_resource$/;"	f	class:ApplicationController
+meu_metodo	app/models/patient.rb	/^  def meu_metodo$/;"	f	class:Patient
 new	app/controllers/patients_controller.rb	/^  def new$/;"	f	class:PatientsController
 patient_params	app/controllers/patients_controller.rb	/^  def patient_params$/;"	f	class:PatientsController
 set_patient	app/controllers/patients_controller.rb	/^  def set_patient$/;"	f	class:PatientsController

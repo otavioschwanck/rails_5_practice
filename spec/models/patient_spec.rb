@@ -15,6 +15,11 @@ RSpec.describe Patient, type: :model do
       it { expect(build(:patient, **attributes).valid?).to be_truthy }
     end
 
+    context '#meu_metodo' do
+      it 'faz_algo' do
+      end
+    end
+
     context 'invalid attributes' do
       let(:attributes) { { name: nil } }
 
