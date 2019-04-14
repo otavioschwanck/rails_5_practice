@@ -1,4 +1,4 @@
-FROM ruby:2.6-stretch
+FROM ruby:2.6.1-stretch
 RUN apt-get update -qq && apt-get install -y postgresql-client
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
         && apt-get install -y nodejs
